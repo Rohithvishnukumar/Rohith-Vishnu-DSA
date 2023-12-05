@@ -1,3 +1,4 @@
+package Queue;
 public class QueueUsingLinkedList {
 
     class Node {
@@ -9,34 +10,34 @@ public class QueueUsingLinkedList {
         }
     }
 
-    public Node head = null;
-    public Node tail = null;
+    public Node front = null;
+    public Node rear = null;
 
     public void insert(int dataR) {
 
         Node newNode = new Node(dataR);
 
-        if (head == null) {
-            head = newNode;
-            tail = newNode;
+        if (front == null) {
+            front = newNode;
+            rear = newNode;
 
-            head.data = dataR;
+            front.data = dataR;
         }
 
         else {
-            tail.next = newNode;
-            tail = newNode;
-            tail.data = dataR;
-            tail.next = null;
+            rear.next = newNode;
+            rear = newNode;
+            rear.data = dataR;
+            rear.next = null;
         }
 
     }
 
     public void display() {
 
-        Node trav = head;
+        Node trav = front;
 
-        if (head == null) {
+        if (front == null) {
             System.out.println("the Queue is empty");
         }
 
@@ -50,7 +51,7 @@ public class QueueUsingLinkedList {
     }
 
     public void pop() {
-        head = head.next;
+        front = front.next;
     }
 
 }
